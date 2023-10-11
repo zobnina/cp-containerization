@@ -48,6 +48,18 @@ services:
       - db_postgres
       - kafka
 
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - type: bind
+        source: ./prom_data/prometheus.yml
+        target: /etc/prometheus/prometheus.yml
+    depends_on:
+      - deal
+
   conveyor:
     restart: on-failure
     image: lexana/conveyor:pr-8
