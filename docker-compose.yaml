@@ -92,7 +92,6 @@ services:
       - MAIL_USERNAME=${MAIL_USERNAME}
       - MAIL_PASSWORD=${MAIL_PASSWORD}
     depends_on:
-      - db_postgres
       - kafka
 
 volumes:
